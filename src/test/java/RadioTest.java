@@ -113,6 +113,42 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSwitchToNextStationAfterMax() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadiostation(10);
+
+        int expected = 1;
+        int actual = rad.nextStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchToNextStationMin() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadiostation(0);
+
+        int expected = 1;
+        int actual = rad.nextStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchToNextStationBeforMin() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadiostation(-1);
+
+        int expected = 1;
+        int actual = rad.nextStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSwitchToPreviousStationBelowMin() {
         Radio rad = new Radio();
 
@@ -137,10 +173,34 @@ public class RadioTest {
     }
 
     @Test
-    public void shouldSwitchToPreviousStationAboveMax() {
+    public void shouldSwitchToPreviousStationMax() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadiostation(9);
+
+        int expected = 8;
+        int actual = rad.previousStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchToPreviousStationAboveMin() {
         Radio rad = new Radio();
 
         rad.setCurrentRadiostation(1);
+
+        int expected = 0;
+        int actual = rad.previousStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSwitchToPreviousStationMin() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadiostation(0);
 
         int expected = 9;
         int actual = rad.previousStation();
@@ -167,6 +227,18 @@ public class RadioTest {
         rad.setCurrentVolume(11);
 
         int expected = 0;
+        int actual = rad.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSetVolumeequalsMax() {
+        Radio rad = new Radio();
+
+        rad.setCurrentVolume(10);
+
+        int expected = 10;
         int actual = rad.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
