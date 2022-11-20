@@ -88,6 +88,17 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    public void shouldSwitchToNextStationBeforMax() {
+        Radio rad = new Radio();
+
+        rad.setCurrentRadiostation(8);
+
+        int expected = 9;
+        int actual = rad.nextStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     public void shouldSwitchToPreviousStationBelowMin() {

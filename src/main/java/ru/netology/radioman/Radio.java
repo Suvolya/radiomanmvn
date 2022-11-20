@@ -25,7 +25,7 @@ public class Radio {
         if (currentRadiostation < 9) {
             currentRadiostation = currentRadiostation +1;
         }
-        if (currentRadiostation >= 9) {
+        if (currentRadiostation > 9) {
             currentRadiostation = 0;
         }
         return currentRadiostation;
