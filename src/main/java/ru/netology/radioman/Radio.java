@@ -17,12 +17,16 @@ public class Radio {
         currentRadiostation = newcurrentRadiostation;
     }
 
+    public void setToFirstStation() {
+        currentRadiostation = 0;
+    }
+
     public void setToLastStation() {
         currentRadiostation = 9;
     }
 
     public int nextStation() {
-        if (currentRadiostation < 9) {
+        if (currentRadiostation <= 9) {
             currentRadiostation = currentRadiostation +1;
         }
         if (currentRadiostation > 9) {
@@ -55,6 +59,10 @@ public class Radio {
             return;
         }
         currentVolume = newcurrentVolume;
+    }
+
+    public void setToMinVolume() {
+        currentVolume = 0;
     }
 
     public void setToMaxVolume() {
