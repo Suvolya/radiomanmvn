@@ -5,6 +5,23 @@ import ru.netology.radioman.Radio;
 public class RadioTest {
 
     @Test
+    public void amount() {
+        Radio rad = new Radio(10);
+
+        Assertions.assertEquals(10, rad.getRadiostationAmount());
+    }
+
+    @Test
+    public void withoutAmount() {
+        Radio rad = new Radio();
+
+        int expected = 10;
+        int actual = rad.getRadiostationAmount();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetRadiostation() {
         Radio rad = new Radio();
 
@@ -15,7 +32,6 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
 
     @Test
     public void shouldSetStationAboveMax() {
@@ -69,9 +85,9 @@ public class RadioTest {
     public void shouldSwitchStationAboveMax() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadiostation(9);
+        rad.setCurrentRadiostation(10);
 
-        int expected = 9;
+        int expected = 0;
         int actual = rad.getCurrentRadiostation();
 
         Assertions.assertEquals(expected, actual);
@@ -188,9 +204,9 @@ public class RadioTest {
     public void shouldSwitchToPreviousStationAboveMin() {
         Radio rad = new Radio();
 
-        rad.setCurrentRadiostation(1);
+        rad.setCurrentRadiostation(0);
 
-        int expected = 0;
+        int expected = 9;
         int actual = rad.previousStation();
 
         Assertions.assertEquals(expected, actual);
@@ -224,7 +240,7 @@ public class RadioTest {
     public void shouldSetVolumeAbovewMax() {
         Radio rad = new Radio();
 
-        rad.setCurrentVolume(11);
+        rad.setCurrentVolume(101);
 
         int expected = 0;
         int actual = rad.getCurrentVolume();
@@ -274,7 +290,7 @@ public class RadioTest {
 
         rad.setToMaxVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = rad.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -296,9 +312,9 @@ public class RadioTest {
     public void shouldIncreaseVolumeAboveMax() {
         Radio rad = new Radio();
 
-        rad.setCurrentVolume(10);
+        rad.setCurrentVolume(100);
 
-        int expected = 10;
+        int expected = 100;
         int actual = rad.increaseVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -356,7 +372,7 @@ public class RadioTest {
     public void shouldLowerVolumeAboveMax() {
         Radio rad = new Radio();
 
-        rad.setCurrentVolume(11);
+        rad.setCurrentVolume(101);
 
         int expected = 0;
         int actual = rad.lowerVolume();
@@ -368,9 +384,9 @@ public class RadioTest {
     public void shouldLowerVolumeAverege() {
         Radio rad = new Radio();
 
-        rad.setCurrentVolume(10);
+        rad.setCurrentVolume(100);
 
-        int expected = 9;
+        int expected = 99;
         int actual = rad.lowerVolume();
 
         Assertions.assertEquals(expected, actual);
