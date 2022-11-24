@@ -9,7 +9,7 @@ public class Radio {
     private int minSoundVolume = 0;
 
     private int maxSoundVolume = 10;
-    public int currentVolume;
+    private int currentVolume;
 
     public int getCurrentRadiostation() {
         return currentRadiostation;
