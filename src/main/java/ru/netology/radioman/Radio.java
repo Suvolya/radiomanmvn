@@ -1,7 +1,15 @@
 package ru.netology.radioman;
 
 public class Radio {
-    public int currentRadiostation;
+
+    private int firstRadiostation = 0;
+    private int lastRadiostation = 9;
+    private int currentRadiostation;
+
+    private int minSoundVolume = 0;
+
+    private int maxSoundVolume = 10;
+    public int currentVolume;
 
     public int getCurrentRadiostation() {
         return currentRadiostation;
@@ -40,8 +48,6 @@ public class Radio {
         }
         return currentRadiostation;
     }
-
-    public int currentVolume;
 
     public int getCurrentVolume() {
         return currentVolume;
