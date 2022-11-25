@@ -5,10 +5,25 @@ import ru.netology.radioman.Radio;
 public class RadioTest {
 
     @Test
-    public void amount() {
-        Radio rad = new Radio(10);
+    public void shouldSetRadiostationAmount() {
+        Radio rad = new Radio();
 
-        Assertions.assertEquals(10, rad.getRadiostationAmount());
+        int expected = 10;
+        int actual = rad.getRadiostationAmount();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void amountDifferent() {
+        Radio rad = new Radio(20);
+
+        rad.setCurrentRadiostation(15);
+
+        int expected = 15;
+        int actual = rad.getCurrentRadiostation();
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -195,18 +210,6 @@ public class RadioTest {
         rad.setCurrentRadiostation(9);
 
         int expected = 8;
-        int actual = rad.previousStation();
-
-        Assertions.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void shouldSwitchToPreviousStationAboveMin() {
-        Radio rad = new Radio();
-
-        rad.setCurrentRadiostation(0);
-
-        int expected = 9;
         int actual = rad.previousStation();
 
         Assertions.assertEquals(expected, actual);

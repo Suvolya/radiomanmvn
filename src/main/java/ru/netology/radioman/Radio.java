@@ -12,11 +12,11 @@ public class Radio {
     private int minSoundVolume = 0;
 
     private int maxSoundVolume = 100;
-    public int currentVolume;
+    private int currentVolume;
 
 
     public Radio(int radiostationAmount) {
-        this.radiostationAmount = radiostationAmount;
+        lastRadiostation = radiostationAmount -1;
     }
 
     public Radio() {
@@ -51,7 +51,7 @@ public class Radio {
 
     public int nextStation() {
         currentRadiostation = currentRadiostation + 1;
-        if (currentRadiostation > 9) {
+        if (currentRadiostation > lastRadiostation) {
             currentRadiostation = 0;
         }
         return currentRadiostation;
@@ -60,7 +60,7 @@ public class Radio {
     public int previousStation() {
         currentRadiostation = currentRadiostation - 1;
         if (currentRadiostation < 0) {
-            currentRadiostation = 9;
+            currentRadiostation = lastRadiostation;
         }
         return currentRadiostation;
     }
@@ -105,3 +105,6 @@ public class Radio {
         return currentVolume;
     }
 }
+
+
+
